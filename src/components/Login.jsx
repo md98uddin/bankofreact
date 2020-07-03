@@ -8,14 +8,14 @@ class Login extends Component {
     this.state = {
       username: null,
       password: null,
-      currentUser: this.props.currentUser,
+      signedIn: this.props.signedIn,
     };
   }
 
-  static getDerivedStateFromProps(prevState, nextProps) {
-    if (nextProps.currentUser !== prevState.currentUser) {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (prevState.signedIn !== nextProps.signedIn) {
       return {
-        currentUser: nextProps.currentUser,
+        signedIn: nextProps.signedIn,
       };
     }
     return null;
@@ -28,14 +28,14 @@ class Login extends Component {
   };
 
   render() {
-    const { currentUser, username } = this.state;
-    console.log("current", currentUser);
-    return (
+    const { username, signedIn } = this.state;
+    console.log("signedIn", signedIn);
+    return !signedIn ? (
       <div className="container">
         <label>Username</label>
-        <input onChange={(e) => this.handleChange(e)} id="username" />
+        <input onChange={this.handleChange} id="username" />
         <label>Password</label>
-        <input onChange={(e) => this.handleChange(e)} id="password" />
+        <input onChange={this.handleChange} id="password" />
         <button
           className="btn-sm btn-primary"
           onClick={() => this.props.onLoginSubmit(username)}
@@ -43,6 +43,8 @@ class Login extends Component {
           Login
         </button>
       </div>
+    ) : (
+      <Redirect exact to="/" />
     );
   }
 }

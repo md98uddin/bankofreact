@@ -17,6 +17,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      signedIn: true,
       accountBalance: null,
       currentUser: null,
       debitsTransactions: null,
@@ -30,19 +31,24 @@ class App extends Component {
   onLoginSubmit = (username) => {
     const user = { username, memberSince: "08/15/2003" };
     this.setState({
+      signedIn: true,
       accountBalance: 32675.89,
       currentUser: user,
     });
   };
 
   render() {
-    const { currentUser, accountBalance } = this.state;
+    const { currentUser, accountBalance, signedIn } = this.state;
     console.log("currentuser", currentUser);
     console.log("balance", accountBalance);
     return (
       <Router>
         <Switch>
-          <Route exact path="/" render={(props) => <Home />} />
+          <Route
+            exact
+            path="/"
+            render={(props) => <Home {...props} signedIn={signedIn} />}
+          />
           <Route
             exact
             path="/login"
@@ -51,6 +57,7 @@ class App extends Component {
                 {...props}
                 onLoginSubmit={this.onLoginSubmit}
                 currentUser={currentUser}
+                signedIn={signedIn}
               />
             )}
           />
@@ -59,8 +66,22 @@ class App extends Component {
             path="/userProfile"
             render={(props) => <UserProfile />}
           />
-          <Route exact path="/debits" render={(props) => <Debits />} />
-          <Route exact path="/credits" render={(props) => <Credits />} />
+          <Route
+            exact
+            path="/debits"
+            render={(props) => (
+              <Debits
+                {...props}
+                accountBalance={accountBalance}
+                currentUser={currentUser}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/credits"
+            render={(props) => <Credits {...props} />}
+          />
         </Switch>
       </Router>
     );
