@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./css/styling.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import UserProfile from "./components/UserProfile";
@@ -47,7 +43,14 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={(props) => <Home {...props} signedIn={signedIn} />}
+            render={(props) => (
+              <Home
+                {...props}
+                signedIn={signedIn}
+                accountBalance={accountBalance}
+                currentUser={currentUser}
+              />
+            )}
           />
           <Route
             exact
