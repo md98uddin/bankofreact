@@ -13,15 +13,26 @@ class App extends Component {
     super(props);
 
     this.state = {
-      signedIn: true,
+      signedIn: false,
       accountBalance: null,
       currentUser: null,
-      debitsTransactions: null,
-      creditTransactions: null,
+      debitsTransactions: [],
+      creditTransactions: [],
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    var debits;
+    Axios.get("https://moj-api.herokuapp.com/debits").then((res) => {
+      debits = res.data;
+      Axios.get("https://moj-api.herokuapp.com/credits").then((res) => {
+        this.setState({
+          debitsTransactions: debits,
+          creditTransactions: res.data,
+        });
+      });
+    });
+  }
 
   //mock login
   onLoginSubmit = (username) => {
@@ -33,10 +44,45 @@ class App extends Component {
     });
   };
 
+  addDebit = (amt, desc) => {
+    console.log("amt", amt, "desc", desc);
+    var month =
+      new Date().getMonth() + 1 < 10
+        ? "0" + (new Date().getMonth() + 1)
+        : new Date().getMonth() + 1;
+    var day =
+      new Date().getDate() < 10
+        ? "0" + new Date().getDate()
+        : new Date().getDate();
+    var date = month + "/" + day + "/" + new Date().getFullYear() + "T";
+
+    var newObj = {
+      id: amt + desc + 895695,
+      amount: amt,
+      description: desc,
+      date,
+    };
+
+    console.log("newobj", newObj);
+
+    var newDebitTransactions = this.state.debitsTransactions;
+    newDebitTransactions.unshift(newObj);
+
+    return this.setState({
+      debitsTransactions: newDebitTransactions,
+      accountBalance: this.state.accountBalance - amt,
+    });
+  };
+
   render() {
-    const { currentUser, accountBalance, signedIn } = this.state;
-    console.log("currentuser", currentUser);
-    console.log("balance", accountBalance);
+    const {
+      currentUser,
+      accountBalance,
+      signedIn,
+      debitsTransactions,
+      creditTransactions,
+    } = this.state;
+
     return (
       <Router>
         <Switch>
@@ -59,7 +105,6 @@ class App extends Component {
               <Login
                 {...props}
                 onLoginSubmit={this.onLoginSubmit}
-                currentUser={currentUser}
                 signedIn={signedIn}
               />
             )}
@@ -76,7 +121,9 @@ class App extends Component {
               <Debits
                 {...props}
                 accountBalance={accountBalance}
-                currentUser={currentUser}
+                signedIn={signedIn}
+                debits={debitsTransactions}
+                addDebit={this.addDebit}
               />
             )}
           />

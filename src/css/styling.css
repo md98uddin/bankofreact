@@ -25,3 +25,17 @@
   color: white;
   background-color: rgb(7, 121, 7);
 }
+
+#account-balance {
+  width: 50%;
+  margin-left: 27%;
+}
+
+#debits-title {
+  color: rgba(255, 255, 255, 0.856);
+}
+
+#transactions {
+  height: 350px;
+  overflow-y: scroll;
+}

@@ -33,9 +33,9 @@ class Login extends Component {
     return !signedIn ? (
       <div className="container">
         <label>Username</label>
-        <input onChange={this.handleChange} id="username" />
+        <input type="text" onChange={this.handleChange} id="username" />
         <label>Password</label>
-        <input onChange={this.handleChange} id="password" />
+        <input type="password" onChange={this.handleChange} id="password" />
         <button
           className="btn-sm btn-primary"
           onClick={() => this.props.onLoginSubmit(username)}
