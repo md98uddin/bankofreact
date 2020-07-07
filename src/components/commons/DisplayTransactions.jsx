@@ -1,6 +1,6 @@
 import React from "react";
 
-const DisplayTransactions = ({ transactions, onChange, onDebitSubmit }) => {
+const DisplayTransactions = ({ transactions, onChange, onSubmit }) => {
   return (
     transactions && (
       <div className="container" style={{ textAlign: "center" }}>
@@ -19,7 +19,7 @@ const DisplayTransactions = ({ transactions, onChange, onDebitSubmit }) => {
           placeholder="60.37"
           id="amount"
         />
-        <button onClick={() => onDebitSubmit()}>Add Debit</button>
+        <button onClick={() => onSubmit()}>Add Debit</button>
         <div id="transactions">
           {" "}
           {transactions.map((transaction) => (

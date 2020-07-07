@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AccountBalance from "./commons/AccountBalance";
 import { Redirect } from "react-router-dom";
-import Axios from "axios";
 import DisplayTransactions from "./commons/DisplayTransactions";
 
 class Debits extends Component {
@@ -53,7 +52,7 @@ class Debits extends Component {
         <DisplayTransactions
           transactions={this.state.debits}
           onChange={this.onChange}
-          onDebitSubmit={this.onDebitSubmit}
+          onSubmit={this.onDebitSubmit}
         />
       </div>
     ) : (

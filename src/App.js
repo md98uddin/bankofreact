@@ -74,6 +74,36 @@ class App extends Component {
     });
   };
 
+  addCredit = (amt, desc) => {
+    console.log("amt", amt, "desc", desc);
+    var month =
+      new Date().getMonth() + 1 < 10
+        ? "0" + (new Date().getMonth() + 1)
+        : new Date().getMonth() + 1;
+    var day =
+      new Date().getDate() < 10
+        ? "0" + new Date().getDate()
+        : new Date().getDate();
+    var date = month + "/" + day + "/" + new Date().getFullYear() + "T";
+
+    var newObj = {
+      id: amt + desc + 895695,
+      amount: amt,
+      description: desc,
+      date,
+    };
+
+    console.log("newobj", newObj);
+
+    var newCreditTransactions = this.state.creditTransactions;
+    newCreditTransactions.unshift(newObj);
+
+    return this.setState({
+      creditTransactions: newCreditTransactions,
+      accountBalance: parseInt(this.state.accountBalance) + parseInt(amt),
+    });
+  };
+
   render() {
     const {
       currentUser,
@@ -130,7 +160,15 @@ class App extends Component {
           <Route
             exact
             path="/credits"
-            render={(props) => <Credits {...props} />}
+            render={(props) => (
+              <Credits
+                {...props}
+                accountBalance={accountBalance}
+                signedIn={signedIn}
+                credits={creditTransactions}
+                addCredit={this.addCredit}
+              />
+            )}
           />
         </Switch>
       </Router>
