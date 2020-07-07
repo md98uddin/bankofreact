@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/bankofreact/precache-manifest.a62a90c901db49630e63efc69c964c0e.js"
+  "/bankofreact/precache-manifest.925bbc31786d053278f2c23fff9a52ef.js"
 );
 
 self.addEventListener('message', (event) => {
