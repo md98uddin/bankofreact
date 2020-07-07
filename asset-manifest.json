@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bankofreact/static/css/main.167d9b65.chunk.css",
+    "main.js": "/bankofreact/static/js/main.9ad9d128.chunk.js",
+    "main.js.map": "/bankofreact/static/js/main.9ad9d128.chunk.js.map",
+    "runtime-main.js": "/bankofreact/static/js/runtime-main.21a54ef4.js",
+    "runtime-main.js.map": "/bankofreact/static/js/runtime-main.21a54ef4.js.map",
+    "static/css/2.829c9cb5.chunk.css": "/bankofreact/static/css/2.829c9cb5.chunk.css",
+    "static/js/2.3f57a1d1.chunk.js": "/bankofreact/static/js/2.3f57a1d1.chunk.js",
+    "static/js/2.3f57a1d1.chunk.js.map": "/bankofreact/static/js/2.3f57a1d1.chunk.js.map",
+    "index.html": "/bankofreact/index.html",
+    "precache-manifest.6d60fe665e0e651ceef113ff4c2a7368.js": "/bankofreact/precache-manifest.6d60fe665e0e651ceef113ff4c2a7368.js",
+    "service-worker.js": "/bankofreact/service-worker.js",
+    "static/css/2.829c9cb5.chunk.css.map": "/bankofreact/static/css/2.829c9cb5.chunk.css.map",
+    "static/css/main.167d9b65.chunk.css.map": "/bankofreact/static/css/main.167d9b65.chunk.css.map",
+    "static/js/2.3f57a1d1.chunk.js.LICENSE.txt": "/bankofreact/static/js/2.3f57a1d1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.21a54ef4.js",
+    "static/css/2.829c9cb5.chunk.css",
+    "static/js/2.3f57a1d1.chunk.js",
+    "static/css/main.167d9b65.chunk.css",
+    "static/js/main.9ad9d128.chunk.js"
+  ]
+}
