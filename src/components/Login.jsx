@@ -21,6 +21,10 @@ class Login extends Component {
     return null;
   }
 
+  componentDidMount() {
+    document.body.style.backgroundColor = "rgb(107, 1, 63)";
+  }
+
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
@@ -31,12 +35,21 @@ class Login extends Component {
     const { username, signedIn } = this.state;
     console.log("signedIn", signedIn);
     return !signedIn ? (
-      <div className="container">
-        <label>Username</label>
+      <div
+        className="container"
+        style={{ textAlign: "center", marginTop: "10%" }}
+      >
+        <h1 style={{ color: "white" }}>Bank Of React Auth</h1>
+        <label style={{ color: "white" }}>Username</label>
+        <br />
         <input type="text" onChange={this.handleChange} id="username" />
-        <label>Password</label>
+        <br />
+        <label style={{ color: "white" }}>Password</label>
+        <br />
         <input type="password" onChange={this.handleChange} id="password" />
+        <br />
         <button
+          style={{ marginTop: "10px" }}
           className="btn-sm btn-primary"
           onClick={() => this.props.onLoginSubmit(username)}
         >
