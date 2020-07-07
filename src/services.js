@@ -1,3 +1,4 @@
+//this function puts current date in mm/dd/yyyy format
 export function getDate() {
   var month =
     new Date().getMonth() + 1 < 10
