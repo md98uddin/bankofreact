@@ -22,6 +22,7 @@ class App extends Component {
     };
   }
 
+  //called initially to load up data into state just before DOM renders
   componentDidMount() {
     var debits;
     Axios.get("https://moj-api.herokuapp.com/debits").then((res) => {
@@ -45,6 +46,7 @@ class App extends Component {
     });
   };
 
+  //gets the current date and pushes into debits transactions and decreases amount
   addDebit = (amt, desc) => {
     var newObj = {
       id: amt + desc + 895695,
@@ -53,6 +55,7 @@ class App extends Component {
       date: getDate(),
     };
 
+    //creating copy to avoid direct update
     var newDebitTransactions = this.state.debitsTransactions;
     newDebitTransactions.unshift(newObj);
 
@@ -62,6 +65,7 @@ class App extends Component {
     });
   };
 
+  //gets the current date and pushes into credits transactions and increases amount
   addCredit = (amt, desc) => {
     var newObj = {
       id: amt + desc + 895695,
@@ -70,6 +74,7 @@ class App extends Component {
       date: getDate(),
     };
 
+    //creating copy to avoid direct update
     var newCreditTransactions = this.state.creditTransactions;
     newCreditTransactions.unshift(newObj);
 
@@ -79,6 +84,7 @@ class App extends Component {
     });
   };
 
+  //sets signedIn to false to signal sign out
   logout = () => {
     return this.setState({
       signedIn: false,
