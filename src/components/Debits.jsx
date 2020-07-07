@@ -44,15 +44,17 @@ class Debits extends Component {
   };
 
   render() {
-    console.log("debits", this.state.debits);
     return this.state.signedIn ? (
       <div className="container" style={{ textAlign: "center" }}>
-        <h1 id="debits-title">Debits</h1>
+        <h1 id="debits-title" style={{ marginLeft: "75px" }}>
+          Debits
+        </h1>
         <AccountBalance accountBalance={this.state.accountBalance} />
         <DisplayTransactions
           transactions={this.state.debits}
           onChange={this.onChange}
           onSubmit={this.onDebitSubmit}
+          title="Add Debit"
         />
       </div>
     ) : (

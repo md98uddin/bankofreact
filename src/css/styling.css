@@ -39,3 +39,8 @@
   height: 350px;
   overflow-y: scroll;
 }
+
+#userCard {
+  width: 40%;
+  margin-left: 35%;
+}

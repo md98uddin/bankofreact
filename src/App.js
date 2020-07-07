@@ -7,6 +7,7 @@ import UserProfile from "./components/UserProfile";
 import Debits from "./components/Debits";
 import Credits from "./components/Credits";
 import Axios from "axios";
+import { getDate } from "./services";
 
 class App extends Component {
   constructor(props) {
@@ -45,25 +46,12 @@ class App extends Component {
   };
 
   addDebit = (amt, desc) => {
-    console.log("amt", amt, "desc", desc);
-    var month =
-      new Date().getMonth() + 1 < 10
-        ? "0" + (new Date().getMonth() + 1)
-        : new Date().getMonth() + 1;
-    var day =
-      new Date().getDate() < 10
-        ? "0" + new Date().getDate()
-        : new Date().getDate();
-    var date = month + "/" + day + "/" + new Date().getFullYear() + "T";
-
     var newObj = {
       id: amt + desc + 895695,
       amount: amt,
       description: desc,
-      date,
+      date: getDate(),
     };
-
-    console.log("newobj", newObj);
 
     var newDebitTransactions = this.state.debitsTransactions;
     newDebitTransactions.unshift(newObj);
@@ -75,25 +63,12 @@ class App extends Component {
   };
 
   addCredit = (amt, desc) => {
-    console.log("amt", amt, "desc", desc);
-    var month =
-      new Date().getMonth() + 1 < 10
-        ? "0" + (new Date().getMonth() + 1)
-        : new Date().getMonth() + 1;
-    var day =
-      new Date().getDate() < 10
-        ? "0" + new Date().getDate()
-        : new Date().getDate();
-    var date = month + "/" + day + "/" + new Date().getFullYear() + "T";
-
     var newObj = {
       id: amt + desc + 895695,
       amount: amt,
       description: desc,
-      date,
+      date: getDate(),
     };
-
-    console.log("newobj", newObj);
 
     var newCreditTransactions = this.state.creditTransactions;
     newCreditTransactions.unshift(newObj);
@@ -101,6 +76,12 @@ class App extends Component {
     return this.setState({
       creditTransactions: newCreditTransactions,
       accountBalance: parseInt(this.state.accountBalance) + parseInt(amt),
+    });
+  };
+
+  logout = () => {
+    return this.setState({
+      signedIn: false,
     });
   };
 
@@ -142,7 +123,15 @@ class App extends Component {
           <Route
             exact
             path="/userProfile"
-            render={(props) => <UserProfile />}
+            render={(props) => (
+              <UserProfile
+                {...props}
+                currentUser={currentUser}
+                accountBalance={accountBalance}
+                signedIn={signedIn}
+                logout={this.logout}
+              />
+            )}
           />
           <Route
             exact

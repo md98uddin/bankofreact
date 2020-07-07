@@ -33,7 +33,6 @@ class Login extends Component {
 
   render() {
     const { username, signedIn } = this.state;
-    console.log("signedIn", signedIn);
     return !signedIn ? (
       <div
         className="container"
