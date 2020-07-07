@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./css/styling.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -95,7 +95,7 @@ class App extends Component {
     } = this.state;
 
     return (
-      <Router>
+      <div>
         <Switch>
           <Route
             exact
@@ -160,7 +160,7 @@ class App extends Component {
             )}
           />
         </Switch>
-      </Router>
+      </div>
     );
   }
 }
