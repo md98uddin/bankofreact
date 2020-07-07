@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bankofreact/static/css/main.167d9b65.chunk.css",
-    "main.js": "/bankofreact/static/js/main.9ad9d128.chunk.js",
-    "main.js.map": "/bankofreact/static/js/main.9ad9d128.chunk.js.map",
+    "main.js": "/bankofreact/static/js/main.c8d6652d.chunk.js",
+    "main.js.map": "/bankofreact/static/js/main.c8d6652d.chunk.js.map",
     "runtime-main.js": "/bankofreact/static/js/runtime-main.21a54ef4.js",
     "runtime-main.js.map": "/bankofreact/static/js/runtime-main.21a54ef4.js.map",
     "static/css/2.829c9cb5.chunk.css": "/bankofreact/static/css/2.829c9cb5.chunk.css",
     "static/js/2.3f57a1d1.chunk.js": "/bankofreact/static/js/2.3f57a1d1.chunk.js",
     "static/js/2.3f57a1d1.chunk.js.map": "/bankofreact/static/js/2.3f57a1d1.chunk.js.map",
     "index.html": "/bankofreact/index.html",
-    "precache-manifest.6d60fe665e0e651ceef113ff4c2a7368.js": "/bankofreact/precache-manifest.6d60fe665e0e651ceef113ff4c2a7368.js",
+    "precache-manifest.a62a90c901db49630e63efc69c964c0e.js": "/bankofreact/precache-manifest.a62a90c901db49630e63efc69c964c0e.js",
     "service-worker.js": "/bankofreact/service-worker.js",
     "static/css/2.829c9cb5.chunk.css.map": "/bankofreact/static/css/2.829c9cb5.chunk.css.map",
     "static/css/main.167d9b65.chunk.css.map": "/bankofreact/static/css/main.167d9b65.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.829c9cb5.chunk.css",
     "static/js/2.3f57a1d1.chunk.js",
     "static/css/main.167d9b65.chunk.css",
-    "static/js/main.9ad9d128.chunk.js"
+    "static/js/main.c8d6652d.chunk.js"
   ]
 }

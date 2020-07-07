@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a1d752ef9a69bff04ce957483a78e9f",
+    "revision": "28386578f99f35a1c21409b8d1c6aabf",
     "url": "/bankofreact/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bankofreact/static/css/2.829c9cb5.chunk.css"
   },
   {
-    "revision": "c250b95c91e899d716a8",
+    "revision": "e9df45f1e345430401a5",
     "url": "/bankofreact/static/css/main.167d9b65.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bankofreact/static/js/2.3f57a1d1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c250b95c91e899d716a8",
-    "url": "/bankofreact/static/js/main.9ad9d128.chunk.js"
+    "revision": "e9df45f1e345430401a5",
+    "url": "/bankofreact/static/js/main.c8d6652d.chunk.js"
   },
   {
     "revision": "c4352f44ccfae1de56de",
